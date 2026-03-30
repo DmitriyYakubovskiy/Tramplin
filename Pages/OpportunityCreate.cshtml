@@ -1,0 +1,127 @@
+﻿@page
+@model hhru.Pages.OpportunityCreateModel
+@using hhru.DataAccess.Models.Enums
+
+<h1>Создать возможность</h1>
+
+<div class="card">
+    <form method="post">
+        <div class="form-group">
+            <label>Название</label>
+            <input asp-for="Input.Title" />
+        </div>
+
+        <div class="form-group">
+            <label>Краткое описание</label>
+            <textarea asp-for="Input.ShortDescription"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Полное описание</label>
+            <textarea asp-for="Input.FullDescription"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Тип</label>
+            <select asp-for="Input.Type">
+                <option value="@OpportunityType.Vacancy">Vacancy</option>
+                <option value="@OpportunityType.Internship">Internship</option>
+                <option value="@OpportunityType.Mentorship">Mentorship</option>
+                <option value="@OpportunityType.Event">Event</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Формат работы</label>
+            <select asp-for="Input.WorkFormat">
+                <option value="@WorkFormat.Office">Office</option>
+                <option value="@WorkFormat.Hybrid">Hybrid</option>
+                <option value="@WorkFormat.Remote">Remote</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Компания</label>
+            <input asp-for="Input.CompanyName" />
+        </div>
+
+        <div class="form-group">
+            <label>Город</label>
+            <input asp-for="Input.City" />
+        </div>
+
+        <div class="form-group">
+            <label>Адрес</label>
+            <input asp-for="Input.Address" />
+        </div>
+
+        <div class="form-group">
+            <label>Зарплата от</label>
+            <input asp-for="Input.SalaryFrom" type="number" step="0.01" />
+        </div>
+
+        <div class="form-group">
+            <label>Зарплата до</label>
+            <input asp-for="Input.SalaryTo" type="number" step="0.01" />
+        </div>
+
+        <div class="form-group">
+            <label>Email для связи</label>
+            <input asp-for="Input.ContactEmail" />
+        </div>
+
+        <div class="form-group">
+            <label>Телефон для связи</label>
+            <input asp-for="Input.ContactPhone" />
+        </div>
+
+        <div class="form-group">
+            <label>Внешняя ссылка</label>
+            <input asp-for="Input.ExternalUrl" />
+        </div>
+
+        <div class="form-group">
+            <label>Теги</label>
+            <input asp-for="Input.Tags" />
+        </div>
+
+        <div class="form-group">
+            <label>Ссылка на медиа</label>
+            <input asp-for="Input.MediaUrl" />
+        </div>
+
+        <div class="form-group">
+            <label>Широта</label>
+            <input asp-for="Input.Latitude" type="number" step="any" />
+        </div>
+
+        <div class="form-group">
+            <label>Долгота</label>
+            <input asp-for="Input.Longitude" type="number" step="any" />
+        </div>
+
+        <div class="form-group">
+            <label>Действует до</label>
+            <input asp-for="Input.ExpiresAt" type="datetime-local" />
+        </div>
+
+        <div class="form-group">
+            <label>Дата события</label>
+            <input asp-for="Input.EventDate" type="datetime-local" />
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input asp-for="Input.IsVerifiedOnly" type="checkbox" />
+                Только для проверенных
+            </label>
+        </div>
+
+        <button type="submit">Создать</button>
+    </form>
+
+    @if (!string.IsNullOrWhiteSpace(Model.Message))
+    {
+        <p class="@(Model.IsSuccess ? "success" : "error")">@Model.Message</p>
+    }
+</div>

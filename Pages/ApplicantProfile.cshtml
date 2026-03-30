@@ -1,0 +1,98 @@
+﻿@page
+@model hhru.Pages.ApplicantProfileModel
+
+<h1>Профиль соискателя</h1>
+
+<div class="card">
+    <form method="post">
+        <div class="form-group">
+            <label>ФИО</label>
+            <input asp-for="Input.FullName" />
+        </div>
+
+        <div class="form-group">
+            <label>Вуз</label>
+            <input asp-for="Input.University" />
+        </div>
+
+        <div class="form-group">
+            <label>Факультет</label>
+            <input asp-for="Input.Faculty" />
+        </div>
+
+        <div class="form-group">
+            <label>Курс / год выпуска</label>
+            <input asp-for="Input.CourseOrGraduationYear" />
+        </div>
+
+        <div class="form-group">
+            <label>О себе</label>
+            <textarea asp-for="Input.About"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Навыки</label>
+            <textarea asp-for="Input.Skills"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Опыт проектов</label>
+            <textarea asp-for="Input.ProjectExperience"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Портфолио</label>
+            <input asp-for="Input.PortfolioUrl" />
+        </div>
+
+        <div class="form-group">
+            <label>GitHub</label>
+            <input asp-for="Input.GitHubUrl" />
+        </div>
+
+        <div class="form-group">
+            <label>Ссылка на резюме</label>
+            <input asp-for="Input.ResumeFileUrl" />
+        </div>
+
+        <div class="form-group">
+            <label>Город</label>
+            <input asp-for="Input.City" />
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input asp-for="Input.IsOpenToWork" type="checkbox" />
+                Открыт к предложениям
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input asp-for="Input.ShowEmail" type="checkbox" />
+                Показывать email
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input asp-for="Input.ShowPhone" type="checkbox" />
+                Показывать телефон
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input asp-for="Input.ShowContactsOnlyForVerifiedEmployers" type="checkbox" />
+                Контакты только для проверенных работодателей
+            </label>
+        </div>
+
+        <button type="submit">Сохранить</button>
+    </form>
+
+    @if (!string.IsNullOrWhiteSpace(Model.Message))
+    {
+        <p class="@(Model.IsSuccess ? "success" : "error")">@Model.Message</p>
+    }
+</div>

@@ -1,0 +1,25 @@
+﻿@page
+@model hhru.Pages.LoginModel
+
+<h1>Вход</h1>
+
+<div class="card">
+    <form method="post">
+        <div class="form-group">
+            <label>Email</label>
+            <input asp-for="Email" />
+        </div>
+
+        <div class="form-group">
+            <label>Пароль</label>
+            <input asp-for="Password" type="password" />
+        </div>
+
+        <button type="submit">Войти</button>
+    </form>
+
+    @if (!string.IsNullOrWhiteSpace(Model.Message))
+    {
+        <p class="error">@Model.Message</p>
+    }
+</div>

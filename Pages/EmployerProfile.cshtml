@@ -1,0 +1,60 @@
+﻿@page
+@model hhru.Pages.EmployerProfileModel
+
+<h1>Профиль работодателя</h1>
+
+<div class="card">
+    <form method="post">
+        <div class="form-group">
+            <label>Название компании</label>
+            <input asp-for="Input.CompanyName" />
+        </div>
+
+        <div class="form-group">
+            <label>Описание</label>
+            <textarea asp-for="Input.Description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Сфера деятельности</label>
+            <input asp-for="Input.Industry" />
+        </div>
+
+        <div class="form-group">
+            <label>Сайт</label>
+            <input asp-for="Input.WebsiteUrl" />
+        </div>
+
+        <div class="form-group">
+            <label>Соцсети</label>
+            <input asp-for="Input.SocialLinks" />
+        </div>
+
+        <div class="form-group">
+            <label>Метод верификации</label>
+            <input asp-for="Input.VerificationMethod" />
+        </div>
+
+        <div class="form-group">
+            <label>Данные для верификации</label>
+            <input asp-for="Input.VerificationData" />
+        </div>
+
+        <div class="form-group">
+            <label>Адрес офиса</label>
+            <input asp-for="Input.OfficeAddress" />
+        </div>
+
+        <div class="form-group">
+            <label>Город</label>
+            <input asp-for="Input.City" />
+        </div>
+
+        <button type="submit">Сохранить</button>
+    </form>
+
+    @if (!string.IsNullOrWhiteSpace(Model.Message))
+    {
+        <p class="@(Model.IsSuccess ? "success" : "error")">@Model.Message</p>
+    }
+</div>

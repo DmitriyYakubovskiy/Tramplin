@@ -1,0 +1,38 @@
+﻿@page
+@model hhru.Pages.RegisterModel
+
+<h1>Регистрация</h1>
+
+<div class="card">
+    <form method="post">
+        <div class="form-group">
+            <label>Имя</label>
+            <input asp-for="Input.FullName" />
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input asp-for="Input.Email" />
+        </div>
+
+        <div class="form-group">
+            <label>Пароль</label>
+            <input asp-for="Input.Password" type="password" />
+        </div>
+
+        <div class="form-group">
+            <label>Роль</label>
+            <select asp-for="Input.Role">
+                <option value="Applicant">Applicant</option>
+                <option value="Employer">Employer</option>
+            </select>
+        </div>
+
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+
+    @if (!string.IsNullOrWhiteSpace(Model.Message))
+    {
+        <p class="@(Model.IsSuccess ? "success" : "error")">@Model.Message</p>
+    }
+</div>
